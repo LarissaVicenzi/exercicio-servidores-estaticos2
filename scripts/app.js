@@ -8,8 +8,9 @@ button.addEventListener('click', function(){
     .then(function (json) {
         // let post = new Post (1,1,"","");
         let post = Post.fromRaw(json);
+        div = post.renderFrom(div);
 
-        console.log(post);
+        // console.log(post);
         
         // div.innerText = json.body;
         // div.innerText = JSON.stringify(json, null, 0);
