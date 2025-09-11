@@ -1,4 +1,5 @@
 let button = document.getElementById('btnUsers');
+let div = document.getElementById('out');
 
 button.addEventListener('click', function(){
     fetch('https://jsonplaceholder.typicode.com/posts/101')
@@ -6,7 +7,8 @@ button.addEventListener('click', function(){
         if (response.ok) {
             return response.json();
         } else {
-            console.log("Erro");
+            let errorMessage = "Recurso não encontrado ou servidor não disponível"
+            throw new Error (errorMessage);
         }
     })
     .then(function (json) {
@@ -17,7 +19,19 @@ button.addEventListener('click', function(){
         // console.log(post);
         
         // div.innerText = json.body;
-        // div.innerText = JSON.stringify(json, null, 0);
-        
+        // div.innerText = JSON.stringify(json, null, 0);  
+    })
+    .catch(function (error) {
+        renderError(error);
+        // console.log(error);
     })
 });
+
+function renderError(error) {
+        div.innerHTML = "";
+
+       let h2 = document.createElement(`h2`);
+        h2.textContent = error;
+
+        div.appendChild(h2);
+    }
