@@ -23,7 +23,9 @@ class Post {
        let pBody = document.createElement(`p`);
        pBody.textContent = this.body;
 
-
+        container.appendChild(h2);
+        container.appendChild(pTitle);
+        container.appendChild(pBody);
     }
 }
 

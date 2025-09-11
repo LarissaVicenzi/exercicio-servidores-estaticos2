@@ -1,7 +1,7 @@
 let button = document.getElementById('btnUsers');
 
 button.addEventListener('click', function(){
-    fetch('https://jsonplaceholder.typicode.com/posts77')
+    fetch('https://jsonplaceholder.typicode.com/posts/77')
     .then(function (response){
         return response.json();
     })
