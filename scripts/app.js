@@ -1,9 +1,13 @@
 let button = document.getElementById('btnUsers');
 
 button.addEventListener('click', function(){
-    fetch('https://jsonplaceholder.typicode.com/posts/77')
+    fetch('https://jsonplaceholder.typicode.com/posts/101')
     .then(function (response){
-        return response.json();
+        if (response.ok) {
+            return response.json();
+        } else {
+            console.log("Erro");
+        }
     })
     .then(function (json) {
         // let post = new Post (1,1,"","");
